@@ -5,14 +5,14 @@ var http = require("http");
 var PORTONE = 7000;
 var PORTTWO = 7500;
 
-// Here we create a generic function to handle requests and responses
+// Here we create a generic function to handle requests and responses for serverOne
 function handleRequestOne(request, response) {
 	console.log("Good job!");
   // The below statement is triggered (client-side) when the user visits the PORT URL
   response.end("Good job!!! Path Hit: " + request.url);
 }
 
-// Here we create a generic function to handle requests and responses
+// Here we create a generic function to handle requests and responses for serverTwo
 function handleRequestTwo(request, response) {
 	console.log("Catch up sucka!");
   // The below statement is triggered (client-side) when the user visits the PORT URL
@@ -24,7 +24,7 @@ function handleRequestTwo(request, response) {
 var serverOne = http.createServer(handleRequestOne);
 var serverTwo = http.createServer(handleRequestTwo);
 
-// Here we start our server so that it can begin listening to client requests.
+// Here we start our serverOne so that it can begin listening to client requests.
 serverOne.listen(PORTONE, function() {
 
   // The below statement is triggered (server-side) when a user visits the PORT URL
@@ -32,7 +32,7 @@ serverOne.listen(PORTONE, function() {
 
 });
 
-// Here we start our server so that it can begin listening to client requests.
+// Here we start our serverTwo so that it can begin listening to client requests.
 serverTwo.listen(PORTTWO, function() {
 
   // The below statement is triggered (server-side) when a user visits the PORT URL
